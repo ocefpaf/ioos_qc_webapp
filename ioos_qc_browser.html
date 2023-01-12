@@ -9,23 +9,26 @@
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 
     <py-config>
-        packages = ["./static/wheels/ioos_qc-2.0.2-py3-none-any.whl"]
-        paths = ["./qc.py"]
+        packages = [
+        "matplotlib",
+        "plotly",
+        "ruamel-yaml==0.16.13",
+        "pandas",
+        "./static/wheels/ioos_qc-2.0.2-py3-none-any.whl",
+        ]
+
+        [[fetch]]
+        from = "./"
+        files = ["qc.py"]
   
-        autoclose_loader = true
+        [splashscreen]
+        autoclose = true
         
         [[runtimes]]
-        src = "https://cdn.jsdelivr.net/pyodide/v0.22.0a1/full/pyodide.js"
-        name = "pyodide-0.22.0a1"
+        src = "https://cdn.jsdelivr.net/pyodide/v0.22.0/full/pyodide.js"
+        name = "pyodide-0.22.0"
         lang = "python"
     </py-config>
-
-    <py-env>
-        - matplotlib
-        - plotly
-        - ruamel-yaml==0.16.13
-        - pandas
-    </py-env>
 </head>
 
 <body>
